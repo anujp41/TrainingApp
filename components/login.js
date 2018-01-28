@@ -18,7 +18,14 @@ class Login extends Component {
   }
 
   onPress() {
-    console.log('i am pressed;')
+    // firebase.auth().signInWithRedirect(provider)
+    // .then(result => {
+    //   const token = result.credential.accessToken;
+    //   const user = result.user
+    // })
+    // .catch(err => console.log(err));
+
+    this.props.navigation.navigate('List');
   }
 
   render() {
