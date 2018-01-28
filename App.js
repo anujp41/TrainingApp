@@ -17,10 +17,12 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <Login />
     );
   }
 }
+
+export default App;

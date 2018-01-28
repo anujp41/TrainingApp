@@ -6,19 +6,21 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
-// import t from 'tcomb-form-native';
-import secrets from '../secrets';
-import firebase from 'firebase';
+import firebase from '../secrets';
 
-// const Form = t.form.Form;
+const provider = new firebase.auth.GoogleAuthProvider();
 
-// const User = t.struct({
-//   email: t.String,
-//   username: t.String,
-//   password: t.String
-// });
+class Login extends Component {
 
-export default class Login extends Component<{}> {
+  constructor() {
+    super();
+    this.onPress = this.onPress.bind(this);
+  }
+
+  onPress() {
+    console.log('i am pressed;')
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -26,7 +28,7 @@ export default class Login extends Component<{}> {
           Welcome to Anuj's CryptoApp!
         </Text>
         {/* <Form style={styles.formContainer} type={User} /> */}
-        <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
+        <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this.onPress}>
           <Text style={styles.buttonText}>Login With Google</Text>
         </TouchableHighlight>
       </View>
@@ -64,3 +66,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default Login;
