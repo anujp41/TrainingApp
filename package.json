@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase": "^4.9.0",
     "react": "16.2.0",
-    "react-native": "0.52.1"
+    "react-native": "0.52.1",
+    "tcomb-form-native": "^0.6.11"
   },
   "devDependencies": {
     "babel-jest": "22.1.0",
