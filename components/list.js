@@ -1,24 +1,37 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  FlatList
 } from 'react-native';
 
 
 class List extends Component {
 
+  constructor() {
+    super();
+    this.key = this.key.bind(this);
+  }
+
+  key = (item) => item.rank;
+
   render() {
+    const currency = this.props.navigation.state.params.currency;
+    console.log('curer ', currency)
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome} style={{fontSize: 50}} >
-          This will have list of everything!
-        </Text>
+        <FlatList
+          keyExtractor={this.key}
+          data={currency}
+          renderItem={{curr} => <Text>{curr}</Text>}
+        />
       </View>
     );
   }
 }
+
+export default List;
 
 const styles = StyleSheet.create({
   container: {
@@ -34,5 +47,3 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-
-export default List;

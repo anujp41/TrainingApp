@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, Easing } from 'react-navigation';
 import { Login, List } from '../components';
 
 export const AppScreens = StackNavigator({

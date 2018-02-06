@@ -7,6 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import firebase from '../secrets';
+import axios from 'axios';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -14,18 +15,25 @@ class Login extends Component {
 
   constructor() {
     super();
+    this.state = {
+      currData: []
+    }
     this.onPress = this.onPress.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  fetchData() {
+    return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
+            .then(currency => this.setState({currData: currency.data}))
   }
 
   onPress() {
-    // firebase.auth().signInWithRedirect(provider)
-    // .then(result => {
-    //   const token = result.credential.accessToken;
-    //   const user = result.user
-    // })
-    // .catch(err => console.log(err));
+    const currency = this.state.currData;
+    this.props.navigation.navigate('List', { currency });
+  }
 
-    this.props.navigation.navigate('List');
+  componentDidMount() {
+    this.fetchData();
   }
 
   render() {
