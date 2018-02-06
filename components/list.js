@@ -24,7 +24,7 @@ class List extends Component {
         <FlatList
           keyExtractor={this.key}
           data={currency}
-          renderItem={{curr} => <Text>{curr}</Text>}
+          renderItem={({item}) => <Text>{item.name}, {item.price_usd}</Text>}
         />
       </View>
     );
