@@ -7,6 +7,8 @@ import {
 } from 'react-native';
 import firebase from '../secrets';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { getCryptosThunk } from '../store';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -32,7 +34,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    this.fetchData();
+    this.props.getCryptos();
   }
 
   render() {
@@ -48,6 +50,18 @@ class Login extends Component {
     );
   }
 }
+
+const mapDispatch = dispatch => {
+  return {
+    getCryptos: () => {
+      const action = getCryptosThunk();
+      dispatch(action);
+    }
+  }
+}
+
+const LoginContainer = connect(null, mapDispatch)(Login);
+export default LoginContainer;
 
 const styles = StyleSheet.create({
   container: {
@@ -79,5 +93,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
-
-export default Login;
