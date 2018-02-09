@@ -6,7 +6,6 @@ import {
   TouchableHighlight
 } from 'react-native';
 import firebase from '../secrets';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { getCryptosThunk } from '../store';
 
@@ -20,17 +19,10 @@ class Login extends Component {
       currData: []
     }
     this.onPress = this.onPress.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-  }
-
-  fetchData() {
-    return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=15')
-            .then(currency => this.setState({currData: currency.data}))
   }
 
   onPress() {
-    const currency = this.state.currData;
-    this.props.navigation.navigate('List', { currency });
+    this.props.navigation.navigate('List');
   }
 
   componentDidMount() {

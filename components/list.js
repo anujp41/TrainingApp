@@ -29,7 +29,7 @@ class List extends Component {
             <View style={styles.card}>
               <View style={styles.data}>
                 <Text style={styles.name}>{item.symbol} | {item.name}</Text>
-                <Text style={styles.price}>{item.price_usd}</Text>
+                <Text style={styles.price}>Current Price: ${item.price_usd}</Text>
               </View>
               <View style={styles.moreData}>
                 <Text>Volume: {item['24h_volume_usd']}</Text>
