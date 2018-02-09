@@ -22,7 +22,7 @@ class Login extends Component {
   }
 
   fetchData() {
-    return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
+    return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=15')
             .then(currency => this.setState({currData: currency.data}))
   }
 
