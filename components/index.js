@@ -6,6 +6,7 @@ import {
   Platform,
   View
 } from 'react-native';
+
 import { AppScreens } from '../navigation/router.js';
 
 export default class App extends Component {

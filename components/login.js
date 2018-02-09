@@ -41,7 +41,6 @@ class Login extends Component {
         <Text style={styles.welcome} style={{fontSize: 50}} >
           Welcome to Anuj's CryptoApp!
         </Text>
-        {/* <Form style={styles.formContainer} type={User} /> */}
         <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this.onPress}>
           <Text style={styles.buttonText}>Login With Google</Text>
         </TouchableHighlight>
